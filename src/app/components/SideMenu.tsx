@@ -24,7 +24,7 @@ const SideMenu = ({ authToken }: IProps) => {
             <MdMenu size={30} />
         </button>
         <div className={isOpened ?  "fixed left-0 top-0 w-[270px] h-screen z-40 bg-[#ecf0f3] p-10 ease-in duration-500": "fixed left-[-100%] top-0 p-10 h-screen ease-in duration-500"}>
-            <span onClick={() => setIsOpened(false)} className="float-end px-3 py-2 hover:bg-gray-200 transition cursor-pointer">
+            <span onClick={() => setIsOpened(false)} className="float-end px-3 py-2 hover:bg-gray-200 transition cursor-pointer rounded">
                 <IoMdClose size={30} />
             </span>
             <div className="mt-16">

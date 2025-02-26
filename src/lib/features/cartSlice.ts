@@ -2,11 +2,11 @@ import { createSlice } from '@reduxjs/toolkit'
 import { RootState } from '../store'
 
 interface ICartState {
-    amount: number;
+    count: number;
 }
 
 const initialState: ICartState = {
-    amount: 0,
+    count: 0,
 }
 
 export const cartSlice = createSlice({

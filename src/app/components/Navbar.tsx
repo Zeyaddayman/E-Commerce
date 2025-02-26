@@ -4,7 +4,7 @@ import SideMenu from "./SideMenu"
 import { cookies } from "next/headers"
 import jwt from "jsonwebtoken"
 import LogoutButton from "./ui/LogoutButton"
-import CartAmount from "./CartAmount"
+import CartCount from "./CartCount"
 
 const Navbar = () => {
     const cookieStore = cookies();
@@ -18,7 +18,7 @@ const Navbar = () => {
             <div className="container px-6 mx-auto md:px-16 flex justify-between items-center">
                 <Link href={'/'} className="logo text-3xl font-bold">LOGO</Link>
                 <Link href={'/cart'} className="px-3 py-2 hover:bg-gray-200 transition rounded hidden md:flex gap-2 items-center">
-                    <IoCartOutline size={30} /> cart - <CartAmount />
+                    <IoCartOutline size={30} /> cart - <CartCount />
                 </Link>
                 {authToken ?
                     <div className="group min-w-44 relative py-2 hover:bg-gray-200 transition hidden md:flex justify-center gap-2 items-center rounded-t cursor-pointer">
