@@ -1,14 +1,20 @@
 "use client";
 
 import { useState } from "react"
-import { IProduct } from "../interfaces"
+import { ICartItem, IProduct } from "../interfaces"
 import { BiCartAdd, BiMinus, BiPlus } from "react-icons/bi";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { selectCart, setCartItems } from "@/lib/features/cartSlice";
+import toast from "react-hot-toast";
 
 interface IProps {
     product: IProduct
 }
 
 const AddToCart = ({ product }: IProps) => {
+
+    const { cartItems } = useAppSelector(selectCart);
+    const dispatch = useAppDispatch();
 
     const { stock } = product;
 
@@ -22,7 +28,47 @@ const AddToCart = ({ product }: IProps) => {
         if (counter > 1) setCounter((prev) => prev - 1);
     }
 
-    const addProductToCart = () => {};
+    const addProductToCartHandler = () => {
+        let exists = false;
+
+        const newCartProducts = cartItems.map((item) => {
+    
+            if (item.id === product.id) {
+                exists = true;
+                const newItem = {...item, qty: item.qty + counter}
+    
+                return newItem;
+    
+            } else return item;
+        })
+    
+        if (exists) {        
+            dispatch(setCartItems(newCartProducts));
+    
+            toast.success("Added to your Cart.\nThis item already exists, the quantity will be increased");
+    
+        } else {
+
+            const { id, title, category, price, discountPercentage, thumbnail, brand, stock, rating } = product
+
+            const newCartItem: ICartItem = {
+                id,
+                title,
+                category,
+                price,
+                discountPercentage,
+                thumbnail,
+                brand,
+                stock,
+                rating,
+                qty: counter
+            }
+
+            dispatch(setCartItems([...newCartProducts, newCartItem]));
+
+            toast.success("Added to your Cart.");
+        }
+    };
 
     return (
         <div className="flex justify-between gap-5 flex-col md:flex-row mt-10">
@@ -31,7 +77,7 @@ const AddToCart = ({ product }: IProps) => {
                 <span className="select-none">{counter}</span>
                 <button onClick={increment} className="cursor-pointer pr-2 flex items-center h-full"><BiPlus /></button>
             </div>
-            <button onClick={addProductToCart} className="bg-black text-white rounded-md py-3 flex-1 flex justify-around items-center">
+            <button onClick={addProductToCartHandler} className="bg-black text-white rounded-md py-3 flex-1 flex justify-around items-center">
                 <BiCartAdd size={25} />
                 Add to cart
             </button>

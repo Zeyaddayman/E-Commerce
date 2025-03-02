@@ -5,9 +5,9 @@ import { useAppSelector } from "@/lib/hooks"
 
 const CartCount = () => {
 
-    const { count } = useAppSelector(selectCart);
+    const { cartItems } = useAppSelector(selectCart);
 
-    return <>{ count }</>
+    return <>{ cartItems.length }</>
 }
 
 export default CartCount

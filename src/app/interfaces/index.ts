@@ -3,11 +3,11 @@ export interface IProduct {
     title: string;
     description?: string;
     price: number;
-    category: string;
     discountPercentage: number;
+    category: string;
     rating: number;
     stock: number;
-    brand: string;
+    brand?: string;
     weight: number;
     images: string[];
     thumbnail: string;
@@ -20,4 +20,17 @@ type Dimensions = {
     width: number
     height: number
     depth: number | undefined
+}
+
+export interface ICartItem {
+    id: string;
+    title: string;
+    price: number;
+    discountPercentage: number;
+    category: string;
+    brand?: string;
+    thumbnail: string;
+    rating: number;
+    stock: number;
+    qty: number
 }

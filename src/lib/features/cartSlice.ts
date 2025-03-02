@@ -1,22 +1,31 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../store'
+import { ICartItem } from '@/app/interfaces'
 
 interface ICartState {
-    count: number;
+    cartItems: ICartItem[]
 }
 
+const localStorageCart = localStorage.getItem("cart");
+
+const products = localStorageCart ? JSON.parse(localStorageCart) : [];
+
 const initialState: ICartState = {
-    count: 0,
+    cartItems: products
 }
 
 export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
+        setCartItems: (state, action: PayloadAction<ICartItem[]>) => {
+            state.cartItems = action.payload;
+            localStorage.setItem("cart", JSON.stringify(state.cartItems));
+        }
     }
 })
 
-// export const {  } = cartSlice.actions
+export const { setCartItems } = cartSlice.actions
 
 export const selectCart = (state: RootState) => state.cart;
 
