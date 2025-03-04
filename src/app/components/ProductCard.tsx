@@ -26,7 +26,9 @@ const ProductCard = ({ product }: IProps) => {
                 <p className="font-semibold">{ title }</p>
                 <p>{ shortText(description ? description : "") }</p>
                 {brand && <p className="font-semibold text-gray-700">{ brand }</p>}
-                <RatingStars rating={rating} />
+                <div className="flex gap-2 items-center">
+                    <span>{ rating }</span> <RatingStars rating={rating} />
+                </div>
                 <p className="flex justify-between items-center">
                     <span className="text-xl">${ discountedPrice(price, discountPercentage).toLocaleString() }</span>
                     <span className="text-gray-400 line-through">${ price.toLocaleString() }</span>

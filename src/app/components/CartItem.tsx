@@ -21,6 +21,7 @@ const CartItem = ({ cartItem }: IProps) => {
     const { id, title, price, discountPercentage, thumbnail, brand, qty, stock } = cartItem;
 
     const [counter, setCounter] = useState(qty);
+    const [deleting, setDeleting] = useState(false);
 
     useEffect(() => {
 
@@ -45,13 +46,16 @@ const CartItem = ({ cartItem }: IProps) => {
     }
 
     const removeCartItem = () => {
-        const newCartItems = cartItems.filter((cartItem) => cartItem.id !== id);
+        setDeleting(true);
+        setTimeout(() => {
+            const newCartItems = cartItems.filter((cartItem) => cartItem.id !== id);
 
-        dispatch(setCartItems(newCartItems));
+            dispatch(setCartItems(newCartItems));
+        }, 700);
     }
 
     return (
-        <li className="py-3 relative flex items-center flex-col lg:flex-row gap-3 border-t border-black">
+        <li className={`${deleting && "opacity-20 -translate-x-1/2"} py-3 relative flex items-center flex-col lg:flex-row gap-3 border-t border-black duration-700`}>
             <Image
                 src={thumbnail}
                 alt={title}
