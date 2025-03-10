@@ -43,7 +43,7 @@ export default function Login() {
             
             toast.success("Logged in successfully");
             setTimeout(() => {
-                router.push('/');
+                router.push("/");
                 router.refresh();
             }, 1500);
         } else {

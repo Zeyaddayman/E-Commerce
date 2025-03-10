@@ -5,7 +5,7 @@ const prisma = new PrismaClient()
 
 export async function GET(req: NextRequest,  { params }: { params: { id: string } }) {
 
-    const { id } = params
+    const { id } = params;
 
     const product = await prisma.product.findFirst({
         where: {

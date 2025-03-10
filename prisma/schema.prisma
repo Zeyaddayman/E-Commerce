@@ -32,6 +32,7 @@ model Product {
     price               Float
     discountPercentage  Float
     rating              Float
+    reviews             Reviews[]
     stock               Int
     brand               String?
     weight              Float
@@ -40,6 +41,14 @@ model Product {
     thumbnail           String
     createdAt      DateTime  @default(now())
     updatedAt      DateTime  @updatedAt
+}
+
+type Reviews {
+    rating        Int
+    comment       String
+    date          DateTime  @default(now())
+    reviewerName  String
+    reviewerEmail String
 }
 
 type Dimensions {

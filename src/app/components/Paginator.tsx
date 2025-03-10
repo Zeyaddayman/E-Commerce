@@ -52,8 +52,7 @@ const Paginator = ({ page, paginationPages }: IProps) => {
         <div className="flex justify-between py-10 items-center gap-5">
             <Button
                 onClick={prevPage}
-                className="text-white bg-teal-700 transition hover:opacity-80 flex items-center gap-2"
-                width="w-fit"
+                className="text-white bg-teal-700 transition hover:opacity-80 flex items-center gap-2 w-fit"
             >
                 <BiLeftArrow /> Prev
             </Button>
@@ -72,8 +71,7 @@ const Paginator = ({ page, paginationPages }: IProps) => {
 
             <Button
                 onClick={nextPage}
-                className="text-white bg-teal-700 transition hover:opacity-80 flex items-center gap-2"
-                width="w-fit"
+                className="text-white bg-teal-700 transition hover:opacity-80 flex items-center gap-2 w-fit"
             >
                 Next <BiRightArrow />
             </Button>

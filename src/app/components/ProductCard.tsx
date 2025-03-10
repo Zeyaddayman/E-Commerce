@@ -14,7 +14,7 @@ const ProductCard = ({ product }: IProps) => {
 
     return (
         <div className="border border-gray-200 p-4 w-[350px] rounded-md">
-            <Link href={`products/${id}`} className="mb-4">
+            <Link href={`product/${id}`} className="mb-4">
                 <Image
                     src={thumbnail}
                     alt={title}

@@ -16,7 +16,7 @@ const SideMenu = ({ authToken }: IProps) => {
 
     const [isOpened, setIsOpened] = useState(false);
 
-    const user = jwt.decode(authToken ? authToken.value: "", { json: true });
+    const user = jwt.decode(authToken ? authToken.value : "", { json: true });
 
     return (
         <>

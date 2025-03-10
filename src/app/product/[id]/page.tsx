@@ -12,7 +12,7 @@ export default async function ProductPreview({ params }: IProps) {
 
     const { id } = params;
 
-    const res = await fetch(`http://localhost:3000/api/products/${id}`, {cache: "no-store"});
+    const res = await fetch(`http://localhost:3000/api/product/${id}`, {cache: "no-store"});
     const data = await res.json();
 
     const { product } = data;
