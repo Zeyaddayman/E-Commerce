@@ -35,7 +35,7 @@ export default async function ProductPreview({ params }: IProps) {
                     {brand && <p className="mt-4 font-semibold text-gray-700">{ brand }</p>}
 
                     <div className="my-4 flex gap-2 items-center">
-                        <span>{ rating }</span> <RatingStars rating={rating} />
+                        <span>{ rating }</span> <RatingStars rating={rating} size="lg" />
                     </div>
 
                     {discountPercentage > 0 ?
@@ -62,7 +62,7 @@ export default async function ProductPreview({ params }: IProps) {
                                     <span className="font-semibold">{review.reviewerName}</span>
                                     <span>{new Date(review.date).toDateString()}</span>
                                 </div>
-                                <RatingStars rating={review.rating} />
+                                <RatingStars rating={review.rating} size="sm" />
                             </div>
                             <p className="mt-4 text-xl">{review.comment}</p>
                         </li>
