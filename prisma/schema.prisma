@@ -29,10 +29,11 @@ model Product {
     title               String    @unique
     description         String?
     category            String
+    tag                 String
     price               Float
     discountPercentage  Float
     rating              Float
-    reviews             Reviews[]
+    reviews             Review[]
     stock               Int
     brand               String?
     weight              Float
@@ -43,7 +44,7 @@ model Product {
     updatedAt      DateTime  @updatedAt
 }
 
-type Reviews {
+type Review {
     rating        Int
     comment       String
     date          DateTime  @default(now())

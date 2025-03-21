@@ -17,7 +17,7 @@ export interface IProduct {
     updatedAt: Date
 }
 
-type Dimensions = {
+export type Dimensions = {
     width: number
     height: number
     depth: number | undefined
@@ -42,4 +42,9 @@ export interface ICartItem {
     rating: number;
     stock: number;
     qty: number
+}
+
+export interface ITag {
+    tagName: string;
+    categories: { categoryName: string, categoryThumbnail: string }[]
 }

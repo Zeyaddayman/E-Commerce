@@ -13,7 +13,7 @@ const ProductCard = ({ product }: IProps) => {
     const { id, title, description, price, discountPercentage, thumbnail, brand, rating  } = product;
 
     return (
-        <div className="border border-gray-200 p-4 w-[350px] rounded-md">
+        <div className="border border-gray-200 p-4 w-[350px] rounded-md shadow-md">
             <Link href={`product/${id}`} className="mb-4">
                 <Image
                     src={thumbnail}

@@ -1,28 +1,20 @@
-import { PrismaClient } from "@prisma/client";
-import Link from "next/link";
-
-const prisma = new PrismaClient()
+import TagCard from "./components/TagCard"
+import { ITag } from "./interfaces"
 
 export default async function Home() {
-    const products = await prisma.product.findMany({
-        select: {
-            category: true
-        }
+
+    const res = await fetch("http://localhost:3000/api/tags", {
+        cache: "no-store"
     })
-
-    const productsCategories: { [category: string]: number } = {}
-
-    for (let i = 0; i < products.length; i++) {
-        productsCategories[products[i].category] = productsCategories[products[i].category] + 1 || 1
-    }
+    const tags: ITag[] = await res.json()
 
     return (
-        <>
-        {Object.keys(productsCategories).map((category) => (
-            <Link key={category} href={category} className="block">
-                {category} : {productsCategories[category]}
-            </Link>
-        ))}
-        </>
+        <main className="p-10 md:p-16 mx-auto">
+            <div className="flex flex-wrap gap-5 justify-center">
+                {tags.map((tag, i) => (
+                    <TagCard key={i} tag={tag} />
+                ))}
+            </div>
+        </main>
     )
 }
