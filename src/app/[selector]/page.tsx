@@ -4,14 +4,14 @@ import { IProduct } from "@/app/interfaces";
 
 interface IProps {
     searchParams: { page: number | undefined };
-    params: { category: string }
+    params: { selector: string }
 }
 
 export default async function ProductsPage({ searchParams, params }: IProps) {
-    const { category } = params;
+    const { selector } = params;
     const page = searchParams.page || 1;
 
-    const res = await fetch(`http://localhost:3000/api/products/${category}/?page=${page}`, {cache: "no-store"});
+    const res = await fetch(`http://localhost:3000/api/products/${selector}/?page=${page}`, {cache: "no-store"});
 
     const data: { products: IProduct[], total: number, page: number, pageSize: number, maxPageSize: number } = await res.json();
 

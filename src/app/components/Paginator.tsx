@@ -52,26 +52,31 @@ const Paginator = ({ page, paginationPages }: IProps) => {
         <div className="flex justify-between py-10 items-center gap-5">
             <Button
                 onClick={prevPage}
-                className="text-white bg-teal-700 transition hover:opacity-80 flex items-center gap-2 w-fit"
+                className={`${page === 1 ? "invisible" : "visible"} text-white bg-teal-700`}
             >
                 <BiLeftArrow /> Prev
             </Button>
 
-            <div className="hidden sm:flex gap-2 flex-wrap">
-                {Array.from({ length: paginationPages }, (_, i) => i + 1).map((x) => (
-                    <span
-                        key={x}
-                        onClick={() => changePage(x)}
-                        className={`${x === page ? "bg-gray-600 text-white" : "cursor-pointer"} py-2 px-4 border border-gray-300 hover:bg-gray-600 hover:text-white transition rounded-md`}
-                    >
-                        {x}
-                    </span>
-                ))}
+            <div>
+                <div className="hidden sm:flex gap-2 flex-wrap">
+                    {Array.from({ length: paginationPages }, (_, i) => i + 1).map((x) => (
+                        <span
+                            key={x}
+                            onClick={() => changePage(x)}
+                            className={`${x === page ? "bg-gray-600 text-white" : "cursor-pointer"} py-2 px-4 border border-gray-300 hover:bg-gray-600 hover:text-white transition rounded-md`}
+                        >
+                            {x}
+                        </span>
+                    ))}
+                </div>
+                <div className="block sm:hidden">
+                    {page} / {paginationPages}
+                </div>
             </div>
 
             <Button
                 onClick={nextPage}
-                className="text-white bg-teal-700 transition hover:opacity-80 flex items-center gap-2 w-fit"
+                className={`${page === paginationPages ? "invisible" : "visible"} text-white bg-teal-700`}
             >
                 Next <BiRightArrow />
             </Button>

@@ -30,7 +30,7 @@ const TagCard = ({ tag }: IProps) => {
                     )
                 })}
             </div>
-            {/* <Link href={tagName} className="absolute left-4 bottom-4 text-blue-800">Explore More</Link> */}
+            <Link href={tagName} className="absolute left-4 bottom-4 text-blue-800">Explore More</Link>
         </div>
     )
 }

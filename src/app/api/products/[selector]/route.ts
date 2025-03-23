@@ -3,9 +3,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 const prisma = new PrismaClient()
 
-export async function GET(req: NextRequest,  { params }: { params: { category: string } }) {
+export async function GET(req: NextRequest,  { params }: { params: { selector: string } }) {
 
-    const { category } = params;
+    const { selector } = params;
 
     const searchParams = new URLSearchParams(req.nextUrl.searchParams);
 
@@ -14,16 +14,23 @@ export async function GET(req: NextRequest,  { params }: { params: { category: s
     const pageSize = 3;
 
     const productsCount = await prisma.product.count({
-        where: { category }
+        where: {
+            OR: [
+                { category: selector },
+                { tag: selector }
+            ]
+        }
     });
 
     const products = await prisma.product.findMany({
-        where: { category },
+        where: {
+            OR: [
+                { category: selector },
+                { tag: selector }
+            ]
+        },
         skip: (page - 1) * pageSize,
         take: pageSize,
-        orderBy: {
-            updatedAt: "asc"
-        }
     });
 
     return NextResponse.json({

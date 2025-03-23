@@ -6,6 +6,7 @@ import { BiCartAdd, BiMinus, BiPlus } from "react-icons/bi";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { selectCart, setCartItems } from "@/lib/features/cartSlice";
 import toast from "react-hot-toast";
+import Button from "./ui/Button";
 
 interface IProps {
     product: IProduct
@@ -77,10 +78,10 @@ const AddToCart = ({ product }: IProps) => {
                 <span className="select-none">{counter}</span>
                 <button onClick={increment} className="cursor-pointer pr-2 flex items-center h-full"><BiPlus /></button>
             </div>
-            <button onClick={addProductToCartHandler} className="bg-black text-white rounded-md py-3 flex-1 flex justify-around items-center">
+            <Button onClick={addProductToCartHandler} className="bg-black text-white flex-1 flex items-center justify-around">
                 <BiCartAdd size={25} />
                 Add to cart
-            </button>
+            </Button>
         </div>
     )
 }
