@@ -9,7 +9,7 @@ const GoBack = () => {
     const { back } = useRouter()
 
     return (
-        <Button onClick={back} className="flex gap-2 items-center border border-gray-400">
+        <Button onClick={back} className="p-2 border border-gray-400">
             <BiLeftArrow /> back
         </Button>
     )

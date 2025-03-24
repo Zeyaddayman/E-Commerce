@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --blue-color: "#75bdeo";
+    --cyan-color: "#78d1d2";
+    --kiwi-color: "#97dbae";
+    --lightGreen-color: "#cde4ad";
+}

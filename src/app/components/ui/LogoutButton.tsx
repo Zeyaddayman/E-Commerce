@@ -3,8 +3,9 @@
 import Cookies from "universal-cookie"
 import { useRouter } from "next/navigation";
 import { IoLogOutOutline } from "react-icons/io5"
+import Button from "./Button";
 
-const LogoutButton = () => {
+const LogoutButton = ({ width = "w-fit" }: { width?: "w-fit" | "w-full" }) => {
 
     const router = useRouter();
     const cookies = new Cookies()
@@ -15,9 +16,9 @@ const LogoutButton = () => {
     }
 
     return (
-        <button onClick={logout} className="bg-red-700 px-3 py-2 flex gap-2 items-center hover:opacity-80 transition rounded cursor-pointer">
+        <Button onClick={logout} className={`border border-red-600 hover:bg-red-600 hover:text-white ${width}`}>
             <IoLogOutOutline size={30} /> Logout
-        </button>
+        </Button>
     )
 }
 

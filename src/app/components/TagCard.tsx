@@ -18,7 +18,7 @@ const TagCard = ({ tag }: IProps) => {
             <div className="flex gap-4 flex-wrap sm:justify-between justify-center mb-6">
                 {categories.map((category) => {
                     return (
-                        <Link href={category.categoryName} key={category.categoryName}>
+                        <Link href={`products/${category.categoryName}`} key={category.categoryName}>
                             <Image
                                 src={category.categoryThumbnail}
                                 alt={`${category.categoryName} thumbnail`}
@@ -30,7 +30,7 @@ const TagCard = ({ tag }: IProps) => {
                     )
                 })}
             </div>
-            <Link href={tagName} className="absolute left-4 bottom-4 text-blue-800">Explore More</Link>
+            <Link href={`products/${tagName}`} className="absolute left-4 bottom-4 text-blue-800">Explore More</Link>
         </div>
     )
 }
