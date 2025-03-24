@@ -1,4 +1,4 @@
-import { ITag } from "@/app/interfaces";
+import { ITag } from "@/app/_interfaces";
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 

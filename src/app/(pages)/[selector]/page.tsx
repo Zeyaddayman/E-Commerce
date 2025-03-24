@@ -1,6 +1,6 @@
-import Paginator from "@/app/components/Paginator";
-import ProductCard from "@/app/components/ProductCard";
-import { IProduct } from "@/app/interfaces";
+import Paginator from "@/app/_components/Paginator";
+import ProductCard from "@/app/_components/ProductCard";
+import { IProduct } from "@/app/_interfaces";
 
 interface IProps {
     searchParams: { page: number | undefined };

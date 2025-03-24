@@ -2,17 +2,17 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
-import StoreProvider from "./providers/StoreProvider";
-import Navbar from "./components/Navbar";
+import StoreProvider from "../_providers/StoreProvider";
+import Navbar from "../_components/Navbar";
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
+  src: "../_fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
 
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+  src: "../_fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });

@@ -1,10 +1,10 @@
 "use client";
 
-import Button from "../components/ui/Button";
+import Button from "@/app/_components/ui/Button";
 import { useAppSelector } from "@/lib/hooks";
 import { selectCart } from "@/lib/features/cartSlice";
-import CartItem from "../components/CartItem";
-import { discountedPrice } from "../utils";
+import CartItem from "@/app/_components/CartItem";
+import { discountedPrice } from "@/app/_utils";
 import Cookies from "universal-cookie"
 import toast from "react-hot-toast";
 

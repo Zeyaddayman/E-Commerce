@@ -1,9 +1,9 @@
-import AddToCart from "@/app/components/AddToCart";
-import ImagesPreview from "@/app/components/ImagesPreview";
-import GoBack from "@/app/components/ui/GoBack";
-import RatingStars from "@/app/components/ui/RatingStars";
-import { IProduct } from "@/app/interfaces";
-import { discountedPrice } from "@/app/utils";
+import AddToCart from "@/app/_components/AddToCart";
+import ImagesPreview from "@/app/_components/ImagesPreview";
+import GoBack from "@/app/_components/ui/GoBack";
+import RatingStars from "@/app/_components/ui/RatingStars";
+import { IProduct } from "@/app/_interfaces";
+import { discountedPrice } from "@/app/_utils";
 
 interface IProps {
     params: { id: string }

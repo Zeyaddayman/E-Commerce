@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { IProduct } from "../interfaces";
 import Link from "next/link";
-import { discountedPrice, shortText } from "../utils";
 import RatingStars from "./ui/RatingStars";
+import { IProduct } from "../_interfaces";
+import { discountedPrice, shortText } from "../_utils";
 
 interface IProps {
     product: IProduct;

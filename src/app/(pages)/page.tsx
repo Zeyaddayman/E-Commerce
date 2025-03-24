@@ -1,5 +1,5 @@
-import TagCard from "./components/TagCard"
-import { ITag } from "./interfaces"
+import TagCard from "../_components/TagCard"
+import { ITag } from "../_interfaces"
 
 export default async function Home() {
 

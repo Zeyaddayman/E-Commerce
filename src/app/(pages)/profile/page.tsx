@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import jwt from "jsonwebtoken"
 import { redirect } from "next/navigation";
-import LogoutButton from "../components/ui/LogoutButton";
+import LogoutButton from "@/app/_components/ui/LogoutButton";
 
 const Profile = () => {
     const cookieStore = cookies();

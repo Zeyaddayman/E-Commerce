@@ -7,9 +7,9 @@ import Cookies from "universal-cookie"
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { loginSchema } from "@/app/validation";
-import Input from "@/app/components/ui/Input";
-import InputErrorMessage from "@/app/components/ui/InputErrorMsg";
+import { loginSchema } from "@/app/_validation";
+import Input from "@/app/_components/ui/Input";
+import InputErrorMessage from "@/app/_components/ui/InputErrorMsg";
 
 export default function Login() {
 

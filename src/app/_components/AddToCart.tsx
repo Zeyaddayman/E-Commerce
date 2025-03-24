@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react"
-import { ICartItem, IProduct } from "../interfaces"
 import { BiCartAdd, BiMinus, BiPlus } from "react-icons/bi";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { selectCart, setCartItems } from "@/lib/features/cartSlice";
 import toast from "react-hot-toast";
 import Button from "./ui/Button";
+import { ICartItem, IProduct } from "../_interfaces";
 
 interface IProps {
     product: IProduct

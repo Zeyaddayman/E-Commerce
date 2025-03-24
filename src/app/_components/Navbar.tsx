@@ -13,8 +13,6 @@ const Navbar = () => {
 
     const user = jwt.decode(authToken ? authToken.value : "", { json: true });
 
-    console.log(user)
-
     return (
         <nav className="py-6 shadow-md">
             <div className="container px-6 md:px-16 mx-auto flex justify-between items-center">
