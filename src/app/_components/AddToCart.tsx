@@ -50,7 +50,7 @@ const AddToCart = ({ product }: IProps) => {
     
         } else {
 
-            const { id, title, category, price, discountPercentage, thumbnail, brand, stock, rating } = product
+            const { id, title, category, price, discountPercentage, thumbnail, brand, rating } = product
 
             const newCartItem: ICartItem = {
                 id,
@@ -60,7 +60,6 @@ const AddToCart = ({ product }: IProps) => {
                 discountPercentage,
                 thumbnail,
                 brand,
-                stock,
                 rating,
                 qty: counter
             }

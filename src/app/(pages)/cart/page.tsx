@@ -28,7 +28,7 @@ const CartPage = () => {
         return totalItems;
     }
 
-    const checkout = () => {
+    const checkoutHandler = () => {
         const cookies = new Cookies();
         if (!cookies.get("authToken")) {
             return toast.error("You must sign in.");
@@ -52,7 +52,7 @@ const CartPage = () => {
                             <p className="flex justify-between py-3 px-3">SHIPPING <span>$0</span></p>
                             <p className="flex justify-between py-3 px-3 border-y border-black">TOTAL <span>${getTotalPrice().toLocaleString()}</span></p>
                         </div>
-                        <Button onClick={checkout} className="py-5 w-full hover:text-white hover:bg-black transition">Check Out</Button>
+                        <Button onClick={checkoutHandler} className="py-5 w-full rounded-none hover:text-white hover:bg-black transition">Check Out</Button>
                     </div>
                 </div>
                 :

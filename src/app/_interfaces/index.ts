@@ -40,7 +40,6 @@ export interface ICartItem {
     brand?: string;
     thumbnail: string;
     rating: number;
-    stock: number;
     qty: number
 }
 

@@ -24,7 +24,7 @@ const Loader = () => {
 }
 
 const Button = ({ children, className, isLoading, ...rest }: IProps) => {
-    const baseStyles = " flex items-center justify-between gap-2 px-6 py-3 w-fit cursor-pointer hover:opacity-90 transition rounded"
+    const baseStyles = " flex items-center justify-center gap-2 px-6 py-3 w-fit cursor-pointer hover:opacity-90 transition rounded"
     return (
         <button
             className={cn(baseStyles, className)}
