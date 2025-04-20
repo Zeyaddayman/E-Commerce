@@ -1,19 +1,20 @@
 'use client';
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup"
-import { registerSchema } from "../../validation"
 import toast from "react-hot-toast";
 import Cookies from "universal-cookie"
-import Input from "../../components/ui/Input";
-import InputErrorMsg from "../../components/ui/InputErrorMsg"
+import { registerSchema } from "@/app/_validation";
+import InputErrorMessage from "@/app/_components/ui/InputErrorMsg";
+import Input from "@/app/_components/ui/Input";
 
 export default function Register() {
 
     const router = useRouter();
+    const params = useSearchParams()
     const {
         register,
         handleSubmit,
@@ -45,7 +46,8 @@ export default function Register() {
             toast.success("User registerd successfully");
 
             setTimeout(() => {
-                router.push('/');
+                const redirect = params.get("redirect") || "/";
+                router.push(redirect);
                 router.refresh();
             }, 1500);
         } else {
@@ -70,7 +72,7 @@ export default function Register() {
                         required
                         {...register('name')}
                     />
-                    {errors['name'] && <InputErrorMsg msg={errors['name']?.message} />}
+                    {errors['name'] && <InputErrorMessage msg={errors['name']?.message} />}
                 </div>
             </div>
 
@@ -86,7 +88,7 @@ export default function Register() {
                         required
                         {...register('email')}
                     />
-                    {errors['email'] && <InputErrorMsg msg={errors['email']?.message} />}
+                    {errors['email'] && <InputErrorMessage msg={errors['email']?.message} />}
                 </div>
             </div>
 
@@ -109,7 +111,7 @@ export default function Register() {
                         required
                         {...register('password')}
                     />
-                    {errors['password'] && <InputErrorMsg msg={errors['password']?.message} />}
+                    {errors['password'] && <InputErrorMessage msg={errors['password']?.message} />}
                 </div>
             </div>
 

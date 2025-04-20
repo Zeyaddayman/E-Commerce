@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Cookies from "universal-cookie"
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
@@ -14,6 +14,7 @@ import InputErrorMessage from "@/app/_components/ui/InputErrorMsg";
 export default function Login() {
 
     const router = useRouter();
+    const params = useSearchParams()
     const {
         register,
         handleSubmit,
@@ -43,7 +44,8 @@ export default function Login() {
             
             toast.success("Logged in successfully");
             setTimeout(() => {
-                router.push("/");
+                const redirect = params.get("redirect") || "/";
+                router.push(redirect);
                 router.refresh();
             }, 1500);
         } else {

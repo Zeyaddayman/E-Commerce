@@ -7,10 +7,12 @@ import CartItem from "@/app/_components/CartItem";
 import { discountedPrice } from "@/app/_utils";
 import Cookies from "universal-cookie"
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const CartPage = () => {
 
     const { cartItems } = useAppSelector(selectCart);
+    const router = useRouter()
 
     const getTotalPrice = () => {
         let totalPrice = 0;
@@ -31,7 +33,9 @@ const CartPage = () => {
     const checkoutHandler = () => {
         const cookies = new Cookies();
         if (!cookies.get("authToken")) {
-            return toast.error("You must sign in.");
+            toast.error("You must sign in.");
+            router.push("/user/login?redirect=/cart")
+            return;
         }
         toast.error("La2 tshtry eh 7adrtk de fake data");
     }

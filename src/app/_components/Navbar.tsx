@@ -5,6 +5,7 @@ import { cookies } from "next/headers"
 import jwt from "jsonwebtoken"
 import CartCount from "./CartCount"
 import { BiUser } from "react-icons/bi"
+import AuthButtons from "./AuthButtons"
 
 const Navbar = () => {
     const cookieStore = cookies();
@@ -26,14 +27,7 @@ const Navbar = () => {
                         {user?.name}
                     </Link>
                 :
-                    <div className="text-white hidden md:flex gap-3">
-                        <Link href={'/user/login'} className="px-6 py-3 bg-blue-700 hover:opacity-90 transition rounded">
-                            Login
-                        </Link>
-                        <Link href={'/user/register'} className="px-6 py-3 bg-gray-700 hover:opacity-90 transition rounded">
-                            Register
-                        </Link>
-                    </div>
+                    <AuthButtons />
                 }
                 <SideMenu authToken={authToken} />
             </div>
