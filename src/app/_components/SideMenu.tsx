@@ -9,6 +9,7 @@ import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 import { BiUser } from "react-icons/bi";
 import { IoCartOutline } from "react-icons/io5";
 import CartCount from "./CartCount";
+import { usePathname } from "next/navigation";
 
 interface IProps {
     authToken: RequestCookie | undefined
@@ -19,6 +20,7 @@ const SideMenu = ({ authToken }: IProps) => {
     const [isOpened, setIsOpened] = useState(false);
 
     const user = jwt.decode(authToken ? authToken.value : "", { json: true });
+    const pathname = usePathname()
 
     return (
         <>
@@ -31,20 +33,20 @@ const SideMenu = ({ authToken }: IProps) => {
                 <IoMdClose size={30} />
             </span>
             <div className="mt-16">
-                <Link href={'/cart'} className="px-6 py-3 flex marker:gap-2 justify-between items-center rounded hover:bg-gray-200 transition">
+                <Link href={'/cart'} className="px-6 py-3 mb-3 flex marker:gap-2 justify-between items-center rounded hover:bg-gray-200 transition">
                     <IoCartOutline size={30} /> cart - <CartCount />
                 </Link>
                 {authToken ?
-                    <Link href={'/profile'} className="px-6 py-3 flex justify-between items-center gap-2 rounded hover:bg-gray-200 transition">
+                    <Link href={'/profile'} className="px-6 py-3 flex mb-3 justify-between items-center gap-2 rounded hover:bg-gray-200 transition">
                         <BiUser size={30} />
                         {user?.name}
                     </Link>
                 :
                 <div className="text-white flex flex-col gap-3 text-center">
-                    <Link href={'/user/login'} className="px-6 py-3 bg-blue-700 hover:opacity-80 transition rounded">
+                    <Link href={`/user/login?redirect=${pathname}`} className="px-6 py-3 bg-blue-700 hover:opacity-80 transition rounded">
                         Login
                     </Link>
-                    <Link href={'/user/register'} className="px-6 py-3 bg-gray-700 hover:opacity-80 transition rounded">
+                    <Link href={`/user/register?redirect=${pathname}`} className="px-6 py-3 bg-gray-700 hover:opacity-80 transition rounded">
                         Register
                     </Link>
                 </div>
