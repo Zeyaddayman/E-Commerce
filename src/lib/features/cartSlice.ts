@@ -6,12 +6,7 @@ interface ICartState {
     cartItems: ICartItem[]
 }
 
-// const localStorageCart = localStorage.getItem("cart");
-
-// const products = localStorageCart ? JSON.parse(localStorageCart) : [];
-
 const initialState: ICartState = {
-    // cartItems: products
     cartItems: []
 }
 
@@ -21,7 +16,7 @@ export const cartSlice = createSlice({
     reducers: {
         setCartItems: (state, action: PayloadAction<ICartItem[]>) => {
             state.cartItems = action.payload;
-            // localStorage.setItem("cart", JSON.stringify(state.cartItems));
+            localStorage.setItem("cart", JSON.stringify(state.cartItems));
         }
     }
 })
