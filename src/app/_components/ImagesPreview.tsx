@@ -29,23 +29,25 @@ const ImagesPreview = ({ images }: IProps) => {
             <div className="relative">
                 {images.length > 1 && <button onClick={decrement} className="absolute bottom-10 left-10 w-12 h-12 bg-white rounded-full flex md:hidden items-center justify-center cursor-pointer"><BiLeftArrow /></button>}
 
-                <Image className="md:rounded-md mx-auto"
+                <Image 
+                    className="md:rounded-md mx-auto"
                     src={images[selected]}
                     alt="main-image"
                     width={250}
                     height={250}
+                    priority
                 />
 
                 {images.length > 1 && <button onClick={increment} className="absolute bottom-10 right-10 w-12 h-12 bg-white rounded-full flex md:hidden items-center justify-center cursor-pointer"><BiRightArrow /></button>}
             </div>
             {images.length > 1 && <ul className="hidden md:flex gap-4 justify-center flex-wrap">
                 {images.map((imageURL, i) => (
-                    <li onClick={() => setSelected(i)} key={i} className={`${selected === i ? "opacity-50" : ""} transition cursor-pointer`}>
+                    <li onClick={() => setSelected(i)} key={i} className={`${selected === i ? "opacity-50" : ""} relative w-20 h-20 transition cursor-pointer`}>
                         <Image
                             src={imageURL}
                             alt={`product-thumbnail-${i + 1}`}
-                            width={80}
-                            height={80}
+                            fill
+                            className="object-contain"
                         />
                     </li>
                 ))}
